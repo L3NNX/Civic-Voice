@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import { Search, Bell, Sun, Moon, ChevronDown } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
@@ -11,15 +11,15 @@ export function Topbar({ onLogout }: TopbarProps) {
   const { isDark, toggleTheme } = useTheme();
 
   return (
-    <div className="bg-white dark:bg-slate-900 shadow-sm border-b border-gray-200 dark:border-slate-700 px-6 py-4">
+    <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-lg border-b border-white/20 dark:border-slate-700/50 px-8 py-4">
       <div className="flex items-center justify-between">
         <div className="flex-1 max-w-md">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="Search issues, departments..."
-                    className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+              className="w-full pl-12 pr-4 py-3 bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl border border-white/20 dark:border-slate-600/50 rounded-2xl text-gray-900 dark:text-slate-100 placeholder-gray-500 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 focus:border-transparent shadow-lg transition-all duration-200"
             />
           </div>
         </div>
@@ -27,7 +27,7 @@ export function Topbar({ onLogout }: TopbarProps) {
         <div className="flex items-center space-x-4">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+            className="p-3 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all duration-200 shadow-lg hover:shadow-xl"
           >
             {isDark ? (
               <Sun className="w-5 h-5 text-gray-600 dark:text-slate-300" />
@@ -37,9 +37,9 @@ export function Topbar({ onLogout }: TopbarProps) {
           </button>
 
           <div className="relative">
-            <button className="p-2 rounded-lg bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:dark:bg-slate-700 transition-colors">
+            <button className="p-3 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all duration-200 shadow-lg hover:shadow-xl">
               <Bell className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold shadow-lg">
                 3
               </span>
             </button>
@@ -48,7 +48,7 @@ export function Topbar({ onLogout }: TopbarProps) {
           <div className="relative">
             <button
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              className="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+              className="flex items-center space-x-3 p-3 rounded-2xl bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 hover:bg-white/80 dark:hover:bg-slate-800/80 transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <img
                 src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=100"
@@ -67,17 +67,17 @@ export function Topbar({ onLogout }: TopbarProps) {
             </button>
 
             {isDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-gray-200 dark:border-slate-600 py-1 z-50">
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-700">
+              <div className="absolute right-0 mt-2 w-48 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 dark:border-slate-600/50 py-2 z-50 overflow-hidden">
+                <a href="#" className="block px-4 py-3 text-sm text-gray-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-700/50 transition-colors duration-200">
                   View Profile
                 </a>
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-700">
+                <a href="#" className="block px-4 py-3 text-sm text-gray-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-700/50 transition-colors duration-200">
                   Settings
                 </a>
-                <hr className="border-gray-200 dark:border-gray-700" />
-                    <button 
+                <hr className="border-gray-200/50 dark:border-gray-700/50 my-2" />
+                <button 
                   onClick={onLogout}
-                  className="w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-700"
+                  className="w-full text-left px-4 py-3 text-sm text-gray-700 dark:text-slate-200 hover:bg-white/50 dark:hover:bg-slate-700/50 transition-colors duration-200"
                 >
                   Sign Out
                 </button>

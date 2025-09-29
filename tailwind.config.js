@@ -26,6 +26,9 @@ export default {
           850: '#1a202c',
         }
       },
+      backdropBlur: {
+        xs: '2px',
+      },
       backgroundColor: {
         'dark-primary': '#0f172a',
         'dark-secondary': '#1e293b',
